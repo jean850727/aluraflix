@@ -7,7 +7,7 @@ import Equipo from './componentes/equipo';
 function App() {
 
   const [mostrarFormulario, actualizarMostrar] = useState(true)
-  const { colaboradores, actualizarColaboradores } = useState([])
+  const [colaboradores, actualizarColaboradores] = useState([])
 
   // ternario --> condicion ? seMuestra : noSeMuestra
   //condocion && seMuestra
@@ -84,7 +84,12 @@ function App() {
       />
 
       {
-        equipos.map((equipo) => <Equipo datos={equipo} key={equipo.titulo} />)
+        equipos.map((equipo) => <Equipo
+          datos={equipo}
+          key={equipo.titulo}
+          colaboradores={colaboradores}
+        />
+        )
       }
 
     </div>

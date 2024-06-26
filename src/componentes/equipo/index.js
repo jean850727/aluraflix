@@ -4,22 +4,25 @@ import Colaborador from "../Colaborador"
 
 const Equipo = (props) => {
     const { colorPrimario, colorSecundario, titulo } = props.datos
-
+    const { colaboradores } = props
 
     const obj = {
         backgroundColor: colorSecundario
     }
 
-const estiloTitulo = { borderColor: colorPrimario }
+    const estiloTitulo = { borderColor: colorPrimario }
 
     return <section className="equipo" style={obj}>
         <h3 style={estiloTitulo}>{titulo}</h3>
         <div className="colaboradores">
-            <Colaborador />
-            <Colaborador />
-            <Colaborador />
-            <Colaborador />
-            
+       
+       
+        
+            {
+                colaboradores.map( (colaborador) => <Colaborador /> )
+                
+            }
+
         </div>
 
     </section>
