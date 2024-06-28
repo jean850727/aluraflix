@@ -1,7 +1,7 @@
 import { useState } from "react"
 import "./campoTexto.css"
 
-const CampoTexto = (props) => {
+const CampoTexto = (props) => { 
     const placeholderModificado = `${props.placeholder}...`
 
 const manejarCambio = (e) => {

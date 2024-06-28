@@ -22,7 +22,7 @@ const Formulario = (props) => {
             foto,
             equipo
         }
-        props(datosAEnviar)   
+        registrarColaborador(datosAEnviar)   
     }
 
     return <section className="formulario">
