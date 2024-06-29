@@ -31,9 +31,9 @@ const Equipo = (props) => {
 
                 {
                     colaboradores.map
-                        ((colaborador, index) => <Colaborador
+                        ((colaborador) => <Colaborador
                             datos={colaborador}
-                            key={colaborador.index}
+                            key={colaborador.id}
                             colorPrimario={colorPrimario}
                             eliminarColaborador={eliminarColaborador}
                             like={like}

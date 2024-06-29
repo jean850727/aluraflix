@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { v4 as uuid } from "uuid"
 import './App.css';
 import Header from './componentes/Header/Header';
-import Formulario from './componentes/formulario/formulario'
+import Formulario from './componentes/formulario/formulario';
 import MiOrg from './componentes/MiOrg';
 import Equipo from './componentes/equipo';
 import Footer from './componentes/Footer/index';
@@ -16,7 +16,7 @@ function App() {
     puesto: "Instructor",
     foto: "https://github.com/harlandlohora.png",
     equipo: "Front End",
-    fav: true
+    fav: false
   },
   {
     id: uuid(),
@@ -24,7 +24,7 @@ function App() {
     puesto: "Instructor",
     foto: "https://github.com/JoseDarioGonzalezCha.png",
     equipo: "Programación",
-    fav: true
+    fav: false
   },
   {
     id: uuid(),
@@ -32,7 +32,7 @@ function App() {
     puesto: "Instructor",
     foto: "https://github.com/JeanmarieAluraLatam.png",
     equipo: "Front End",
-    fav: true
+    fav: false
   },
   {
     id: uuid(),
@@ -107,7 +107,7 @@ function App() {
   const registrarColaborador = (colaborador) => {
     console.log("Nuevo Colaborador", colaborador);
     //Spread operator
-    actualizarColaboradores([...colaboradores, colaborador])
+    actualizarColaboradores([...colaboradores, {...colaborador, id: uuid()}])
   }
 
   //funcion eliminar colaborador
@@ -136,7 +136,7 @@ function App() {
   //crear equipo
   const crearEquipo = (nuevoEquipo) => {
     console.log("Nuevo equipo", nuevoEquipo);
-    actualizarEquipos([...equipos, { ...nuevoEquipo, id: uuid }])
+    actualizarEquipos([...equipos, { ...nuevoEquipo, id: uuid() }])
 
   }
 
@@ -148,7 +148,7 @@ function App() {
       }
       return colaborador
     })
-    
+    actualizarColaboradores(colaboradoresActualizados);
   }
   return (
     <div>
@@ -169,7 +169,7 @@ function App() {
       {
         equipos.map((equipo) => <Equipo
           datos={equipo}
-          key={equipo.titulo}
+          key={equipo.id}
           colaboradores=
           {colaboradores.filter
             (colaborador => colaborador.equipo === equipo.titulo)}
